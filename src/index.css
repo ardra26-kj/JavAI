@@ -88,46 +88,6 @@ button {
   color: #6b855f;
 }
 
-.header-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.conversation-label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 10px;
-  border: 1px solid #e9ebe5;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.6);
-  color: #858980;
-  font-size: 11px;
-}
-
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #81a272;
-  box-shadow: 0 0 0 3px #edf2e8;
-}
-
-.conversation-caption {
-  color: #74796f;
-  font-weight: 600;
-}
-
-.conversation-id {
-  max-width: 180px;
-  overflow: hidden;
-  color: #a0a49b;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .icon-button {
   display: inline-grid;
   place-items: center;
@@ -633,27 +593,6 @@ button {
 
   .brand-name {
     font-size: 17px;
-  }
-
-  .header-center {
-    position: static;
-    margin-left: auto;
-    margin-right: 10px;
-    transform: none;
-  }
-
-  .conversation-label {
-    gap: 6px;
-    padding: 6px 8px;
-  }
-
-  .conversation-caption {
-    display: none;
-  }
-
-  .conversation-id {
-    max-width: 82px;
-    font-size: 10px;
   }
 
   .new-chat-button {

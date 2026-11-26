@@ -1,9 +1,7 @@
 import {
   ArrowUp,
-  Check,
   CircleHelp,
   Code2,
-  Copy,
   FileText,
   Lightbulb,
   Plus,
@@ -70,7 +68,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [failedMessage, setFailedMessage] = useState<string | null>(null);
-  const [copied, setCopied] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const activeRequestRef = useRef<AbortController | null>(null);
@@ -187,16 +184,6 @@ function App() {
     textarea.style.height = `${Math.min(textarea.scrollHeight, 180)}px`;
   };
 
-  const copyConversationId = async () => {
-    try {
-      await navigator.clipboard.writeText(conversationId);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    } catch (copyError) {
-      console.error("Could not copy the conversation ID.", copyError);
-    }
-  };
-
   return (
     <div className="app-shell min-h-screen">
       <header className="topbar">
@@ -206,25 +193,6 @@ function App() {
           </span>
           <span className="brand-name">Jav<span>AI</span></span>
         </a>
-
-        <div className="header-center">
-          <div className="conversation-label">
-            <span className="status-dot" />
-            <span className="conversation-caption">Conversation</span>
-            <span className="conversation-id" title={conversationId}>
-              {conversationId}
-            </span>
-            <button
-              className="icon-button copy-button"
-              type="button"
-              aria-label="Copy conversation ID"
-              title="Copy conversation ID"
-              onClick={() => void copyConversationId()}
-            >
-              {copied ? <Check size={14} /> : <Copy size={13} />}
-            </button>
-          </div>
-        </div>
 
         <button className="new-chat-button" type="button" onClick={startNewChat}>
           <Plus size={16} strokeWidth={2} />
